@@ -1,3 +1,32 @@
-.article-link {
+a,
+a:visited,
+a:active {
+    color: inherit;
+}
+
+span.author {
+    color: #999;
+}
+
+span.title,
+span.time {
+    color: #333;
+    font-size: 13pt;
+}
+
+a.article-link {
     text-decoration: none !important;
+}
+
+::ng-deep .mat-list-base {
+    padding-top: 0;
+}
+
+.mat-list-item {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.mat-list-item:hover {
+    background-color: #fafafa;
 }

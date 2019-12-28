@@ -2,7 +2,6 @@
     <ng-container *ngIf="articles?.length > 0; else elseEmptyArticles">
         <mat-list *ngFor="let art of articles">
             <app-article-item [art]="art"></app-article-item>
-            <mat-divider></mat-divider>
         </mat-list>
     </ng-container>
     <ng-template #elseEmptyArticles>

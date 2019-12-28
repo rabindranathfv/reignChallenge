@@ -1,28 +1,30 @@
-<ng-container *ngIf="art.story_url || art.url; else elseTemplate">
-    <a class="article-link" mat-list-item [href]="art.story_url != null ? art.story_url : art.url" target="_blank" [id]="art._id" *ngIf="art.story_title || art.title">
-        <ng-container *ngIf="art.story_title; else elseTemplateTitle ">
-            <div class="article-details">
-                <p>{{ art.story_title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button><i class="fas fa-trash-alt"></i></button></p>
-            </div>
-        </ng-container>
-        <ng-template #elseTemplateTitle>
-            <div class="article-details">
-                <p>{{ art.title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button><i class="fas fa-trash-alt"></i></button></p>
-            </div>
-        </ng-template>
-    </a>
+<ng-container *ngIf="art">
+    <ng-container *ngIf="art.story_url || art.url; else elseTemplate">
+        <a class="article-link" mat-list-item [href]="art.story_url != null ? art.story_url : art.url" target="_blank" [id]="art._id" *ngIf="art.story_title || art.title">
+            <ng-container *ngIf="art.story_title; else elseTemplateTitle ">
+                <div class="article-details">
+                    <p>{{ art.story_title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button><i class="fas fa-trash-alt"></i></button></p>
+                </div>
+            </ng-container>
+            <ng-template #elseTemplateTitle>
+                <div class="article-details">
+                    <p>{{ art.title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button (click)="deleteArticle(art._id)"><i class="fas fa-trash-alt"></i></button></p>
+                </div>
+            </ng-template>
+        </a>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <a class="article-link" mat-list-item [id]="art._id" *ngIf="art.story_title || art.title">
+            <ng-container *ngIf="art.story_title; else elseTemplateTitle ">
+                <div class="article-details">
+                    <p>NO TIENE URL {{ art.story_title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button (click)="deleteArticle(art._id)"><i class="fas fa-trash-alt"></i></button></p>
+                </div>
+            </ng-container>
+            <ng-template #elseTemplateTitle>
+                <div class="article-details">
+                    <p>{{ art.title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button><i class="fas fa-trash-alt"></i></button></p>
+                </div>
+            </ng-template>
+        </a>
+    </ng-template>
 </ng-container>
-<ng-template #elseTemplate>
-    <a class="article-link" mat-list-item [id]="art._id" *ngIf="art.story_title || art.title">
-        <ng-container *ngIf="art.story_title; else elseTemplateTitle ">
-            <div class="article-details">
-                <p>NO TIENE URL {{ art.story_title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button><i class="fas fa-trash-alt"></i></button></p>
-            </div>
-        </ng-container>
-        <ng-template #elseTemplateTitle>
-            <div class="article-details">
-                <p>{{ art.title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button><i class="fas fa-trash-alt"></i></button></p>
-            </div>
-        </ng-template>
-    </a>
-</ng-template>

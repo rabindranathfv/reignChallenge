@@ -9,3 +9,20 @@
 .main-container>.main-content>.title-container {
     border: 2px solid slateblue;
 }
+
+.no-articles {
+    font-size: 2em;
+    font-weight: 300;
+    color: #333;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.no-articles-img {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: calc(100vh - 40vh);
+    width: calc(100vw - 20vw);
+}

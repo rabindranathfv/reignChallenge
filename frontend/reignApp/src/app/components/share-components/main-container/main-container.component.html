@@ -9,12 +9,33 @@
                 </mat-card-content>
             </mat-card>
         </div>
-        <div>
-            <ng-container *ngIf="0; else elseEmptyArticles">
-                <p> articles </p>
+        <div class="articles">
+            <ng-container *ngIf="articles?.length > 0; else elseEmptyArticles">
+                <mat-list *ngFor="let art of articles">
+                    <a class="article-link" mat-list-item [href]="art.story_url != null ? art.story_url : art.url" target="_blank" [id]="art._id" *ngIf="art.story_title || art.title">
+                        <ng-container *ngIf="art.story_title; else elseTemplateTitle ">
+                            <div class="article-details">
+                                <p>{{ art.story_title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button><i class="fas fa-trash-alt"></i></button></p>
+                            </div>
+                        </ng-container>
+                        <ng-template #elseTemplateTitle>
+                            <div class="article-details">
+                                <p>{{ art.title }} - {{ art.author }} {{ art.created_at | date }} <button mat-button><i class="fas fa-trash-alt"></i></button></p>
+                            </div>
+                        </ng-template>
+                    </a>
+                    <mat-divider></mat-divider>
+                </mat-list>
             </ng-container>
             <ng-template #elseEmptyArticles>
-                <p>empty articles</p>
+                <mat-card>
+                    <mat-card-content>
+                        <div class="no-articles">
+                            <p>there is no articles <i class="fas fa-info-circle"></i></p>
+                        </div>
+                        <img mat-card-image class="no-articles-img" src="../../../../assets/img/fogg-page-not-found.png" alt="Photo of a Shiba Inu">
+                    </mat-card-content>
+                </mat-card>
             </ng-template>
 
         </div>

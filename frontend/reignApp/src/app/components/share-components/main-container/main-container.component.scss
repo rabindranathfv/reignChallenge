@@ -1,0 +1,11 @@
+.main-container {
+    border: 2px solid red;
+    grid-area: main-container;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.main-container>.main-content>.title-container {
+    border: 2px solid slateblue;
+}

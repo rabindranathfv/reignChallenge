@@ -10,6 +10,16 @@
     border: 2px solid slateblue;
 }
 
+.article-link {
+    text-decoration: none !important;
+    display: flex;
+    justify-content: space-around;
+}
+
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content .articles-details {
+    justify-content: space-around !important;
+}
+
 .no-articles {
     font-size: 2em;
     font-weight: 300;

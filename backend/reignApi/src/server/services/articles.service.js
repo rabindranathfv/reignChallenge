@@ -39,7 +39,6 @@ const createArticles = async(objArticles) => {
 };
 
 const getArticlesRemote = async() => {
-    console.log('excute cronjob');
     let resp = await axios.get(`${process.env.API_URL}`);
     let articles = await {...resp.data };
     createArticles(articles);

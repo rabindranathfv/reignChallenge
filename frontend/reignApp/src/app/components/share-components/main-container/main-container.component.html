@@ -9,7 +9,10 @@
                 </mat-card-content>
             </mat-card>
         </div>
-        <div class="articles">
+        <app-articles [articles]="articles">
+
+        </app-articles>
+        <!-- <div class="articles">
             <ng-container *ngIf="articles?.length > 0; else elseEmptyArticles">
                 <mat-list *ngFor="let art of articles">
                     <a class="article-link" mat-list-item [href]="art.story_url != null ? art.story_url : art.url" target="_blank" [id]="art._id" *ngIf="art.story_title || art.title">
@@ -38,7 +41,7 @@
                 </mat-card>
             </ng-template>
 
-        </div>
+        </div> -->
     </div>
 
 </div>

@@ -4,7 +4,7 @@
     "engines": {
         "node": "10.14.2"
     },
-    "description": "reignapi ",
+    "description": "reignapi",
     "main": "app.js",
     "scripts": {
         "start": "nodemon server/server.js",
@@ -12,14 +12,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://gitlab.com/forcastdev/innovaapi.git"
+        "url": "https://gitlab.com/rabindranathfv1/reignchallenge"
     },
     "author": "Rabindranath Ferreira",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/rabindranathfv/webServerNode/issues"
+        "url": "https://gitlab.com/rabindranathfv1/reignchallenge/issues"
     },
-    "homepage": "https://github.com/rabindranathfv/webServerNode#readme",
+    "homepage": "https://gitlab.com/rabindranathfv1/reignchallenge/",
     "dependencies": {
         "axios": "^0.19.0",
         "bcrypt": "^3.0.6",

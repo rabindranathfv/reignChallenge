@@ -6,6 +6,7 @@ import { ArticleNoDataComponent } from './article-no-data/article-no-data.compon
 
 // modules
 import { MaterialModule } from '../material/material.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MaterialModule } from '../material/material.module';
     ArticleNoDataComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    PipesModule
   ],
   exports: [
     ArticlesComponent,

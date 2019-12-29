@@ -8,7 +8,7 @@
                     </span>
                 </a>
                 <span class="btn-delete" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
-                    <span class="time"> {{ art.created_at | date }} </span>
+                    <span class="time"> {{ art.created_at | date: 'MMM d, y hh:mm a' }} </span>
                 <ng-container *ngIf="showDelete">
                     <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article"><i class="material-icons">restore_from_trash</i></button>
                 </ng-container>
@@ -22,7 +22,7 @@
                     </span>
                 </a>
                 <span class="btn-delete" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
-                    <span class="time"> {{ art.created_at | date }} </span>
+                    <span class="time"> {{ art.created_at | date: 'MMM d, y hh:mm a' }} </span>
                 <ng-container *ngIf="showDelete">
                     <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article"><i class="material-icons">restore_from_trash</i></button>
                 </ng-container>
@@ -38,11 +38,11 @@
             <ng-container *ngIf="art.story_title; else elseTemplateTitle ">
                 <a class="article-data" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
                     <span class="article-link">
-                        <p class="article-info"><span class="title"> NO URL{{ art.story_title }}</span><span class="author"> - {{ art.author }} - </span> </p>
+                        <p class="article-info"><span class="title"> {{ art.story_title }}</span><span class="author"> - {{ art.author }} - </span> </p>
                     </span>
                 </a>
                 <span class="btn-delete" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
-                    <span class="time"> {{ art.created_at | date }} </span>
+                    <span class="time"> {{ art.created_at | date: 'MMM d, y hh:mm a' }} </span>
                 <ng-container *ngIf="showDelete">
                     <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article"><i class="material-icons">restore_from_trash</i></button>
                 </ng-container>
@@ -52,11 +52,11 @@
             <ng-template #elseTemplateTitle>
                 <a class="article-data" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
                     <span class="article-link">
-                        <p class="article-info"><span class="title"> NO URL {{ art.title }}</span><span class="author"> - {{ art.author }} - </span> </p>
+                        <p class="article-info"><span class="title"> {{ art.title }}</span><span class="author"> - {{ art.author }} - </span> </p>
                     </span>
                 </a>
                 <span class="btn-delete" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
-                    <span class="time"> {{ art.created_at | date }} </span>
+                    <span class="time"> {{ art.created_at | date: 'MMM d, y hh:mm a' }} </span>
                 <ng-container *ngIf="showDelete">
                     <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article"><i class="material-icons">restore_from_trash</i></button>
                 </ng-container>

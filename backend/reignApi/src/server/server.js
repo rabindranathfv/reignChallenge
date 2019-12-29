@@ -5,16 +5,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Debug = require('debug');
-// const config = require('./config/config');
 
 // parse applicattion /x-www/form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+require('./config/config');
 app.use(cors());
 app.use(require('./config/headers'));
-require('./config/config');
 
 const debug = new Debug('backend-api:root');
 app.use(require('./api/routes/indexRoutes'));

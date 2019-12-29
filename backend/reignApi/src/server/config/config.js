@@ -1,12 +1,12 @@
-'use stric'
+'use stric';
 
 const path = require('path');
 const dotenv = require('dotenv');
 
+console.log('load node process env', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'dev') {
     console.log('running dev');
-    console.log(path.join(__dirname, './.env'));
-    dotenv.config({ path: path.join(__dirname, './config/.env') });
+    dotenv.config({ path: path.join(__dirname, './.env') });
     console.log(process.env.NODE_ENV);
     console.log(process.env.DB_HOST);
     console.log(process.env.HOST);

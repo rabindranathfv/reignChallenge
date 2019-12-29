@@ -1,4 +1,26 @@
-p {
-    color: red;
-    border: 2px solid green;
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-actions-navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btn-navbar {
+    margin: 2% auto;
+}
+
+.container-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-logo {
+    width: auto;
+    height: 75px;
 }

@@ -1,0 +1,11 @@
+<div class="articles">
+    <ng-container *ngIf="articles?.length > 0; else elseEmptyArticles">
+        <mat-list *ngFor="let art of articles">
+            <app-article-item [art]="art"></app-article-item>
+        </mat-list>
+    </ng-container>
+    <ng-template #elseEmptyArticles>
+        <app-article-no-data></app-article-no-data>
+    </ng-template>
+
+</div>

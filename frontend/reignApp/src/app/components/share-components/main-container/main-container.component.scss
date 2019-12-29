@@ -1,38 +1,20 @@
 .main-container {
-    border: 2px solid red;
     grid-area: main-container;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 }
 
-.main-container>.main-content>.title-container {
-    border: 2px solid slateblue;
-}
-
-.article-link {
-    text-decoration: none !important;
+.header-content {
     display: flex;
-    justify-content: space-around;
-}
-
-::ng-deep .mat-list-base .mat-list-item .mat-list-item-content .articles-details {
-    justify-content: space-around !important;
-}
-
-.no-articles {
-    font-size: 2em;
-    font-weight: 300;
-    color: #333;
-    display: flex;
-    align-content: center;
     justify-content: center;
-}
-
-.no-articles-img {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    height: calc(100vh - 40vh);
-    width: calc(100vw - 20vw);
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    height: calc(100vh - 80-vh);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 3%;
 }

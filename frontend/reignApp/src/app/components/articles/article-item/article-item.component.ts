@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Article } from 'src/app/interfaces/article.interface';
-import { ArticlesService } from 'src/app/services/articles/articles.service';
+import * as moment from 'moment';
 
+// services
+import { ArticlesService } from 'src/app/services/articles/articles.service';
 @Component({
   selector: 'app-article-item',
   templateUrl: './article-item.component.html',
@@ -11,9 +13,11 @@ export class ArticleItemComponent implements OnInit {
 
   @Input() art: Article[];
   showDelete: boolean;
+  dateCompare: number;
 
   constructor( private articleService: ArticlesService) {
     this.showDelete = false;
+    this.dateCompare = 0;
   }
 
   ngOnInit() {
@@ -24,6 +28,16 @@ export class ArticleItemComponent implements OnInit {
    */
   public activeTrash() {
     this.showDelete = !this.showDelete;
+  }
+
+  /**
+   * checkDate
+   */
+  public checkDate( artDate ) {
+    console.log('ejecutando checkdate');
+    this.dateCompare = artDate.diff(moment());
+    console.log(this.dateCompare);
+    return 0;
   }
 
   /**

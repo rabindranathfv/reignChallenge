@@ -1,42 +1,66 @@
 <ng-container *ngIf="art">
-    <ng-container *ngIf="art.story_url || art.url; else elseTemplate">
+    <ng-container *ngIf="art.story_url || art.url; else elseTemplateNoLink">
         <mat-list-item [id]="art._id" *ngIf="art.story_title || art.title">
             <ng-container *ngIf="art.story_title; else elseTemplateTitle ">
-                <div class="article-details">
-                    <a class="article-link" class="article-link" class="article-link" [href]="art.story_url != null ? art.story_url : art.url" target="_blank">
-                        <p class="article-info"><span class="title">{{ art.story_title }}</span> - <span class="author">{{ art.author }}</span> - <span class="time"> {{ art.created_at | date }}</span></p>
-                    </a>
-                    <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article">
-                            <i class="material-icons">restore_from_trash</i>
-                    </button>
-                </div>
+                <a class="article-data" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()" [href]="art.story_url != null ? art.story_url : art.url" target="_blank">
+                    <span class="article-link">
+                        <p class="article-info"><span class="title">{{ art.story_title }}</span><span class="author"> - {{ art.author }} - </span> </p>
+                    </span>
+                </a>
+                <span class="btn-delete" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
+                    <span class="time"> {{ art.created_at | date }} </span>
+                <ng-container *ngIf="showDelete">
+                    <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article"><i class="material-icons">restore_from_trash</i></button>
+                </ng-container>
+                </span>
             </ng-container>
+
             <ng-template #elseTemplateTitle>
-                <div class="article-details">
-                    <a class="article-link" class="article-link" class="article-link" [href]="art.story_url != null ? art.story_url : art.url" target="_blank">
-                        <p class="article-info"><span class="title">{{ art.title }}</span> - <span class="author">{{ art.author }}</span> - <span class="time"> {{ art.created_at | date }}</span></p>
-                    </a>
-                </div>
+                <a class="article-data" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()" [href]="art.story_url != null ? art.story_url : art.url" target="_blank">
+                    <span class="article-link">
+                            <p class="article-info"><span class="title">{{ art.title }}</span><span class="author"> - {{ art.author }} - </span> </p>
+                    </span>
+                </a>
+                <span class="btn-delete" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
+                    <span class="time"> {{ art.created_at | date }} </span>
+                <ng-container *ngIf="showDelete">
+                    <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article"><i class="material-icons">restore_from_trash</i></button>
+                </ng-container>
+                </span>
             </ng-template>
 
         </mat-list-item>
     </ng-container>
-    <ng-template #elseTemplate>
+
+    <ng-template #elseTemplateNoLink>
         <mat-list-item [id]="art._id" *ngIf="art.story_title || art.title">
 
             <ng-container *ngIf="art.story_title; else elseTemplateTitle ">
-                <div class="article-details">
-                    <a class="article-link" class="article-link" [href]="art.story_url != null ? art.story_url : art.url" target="_blank">
-                        <p class="article-info">NO URL <span class="title">{{ art.story_title }}</span> - <span class="author"> {{ art.author }}</span> - <span class="time"> {{ art.created_at | date }}</span></p>
-                    </a>
-                </div>
+                <a class="article-data" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
+                    <span class="article-link">
+                        <p class="article-info"><span class="title"> NO URL{{ art.story_title }}</span><span class="author"> - {{ art.author }} - </span> </p>
+                    </span>
+                </a>
+                <span class="btn-delete" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
+                    <span class="time"> {{ art.created_at | date }} </span>
+                <ng-container *ngIf="showDelete">
+                    <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article"><i class="material-icons">restore_from_trash</i></button>
+                </ng-container>
+                </span>
             </ng-container>
+
             <ng-template #elseTemplateTitle>
-                <div class="article-details">
-                    <a class="article-link" class="article-link" [href]="art.story_url != null ? art.story_url : art.url" target="_blank">
-                        <p class="article-info">NO URL <span class="title">{{ art.title }}</span> - <span class="author"> {{ art.author }}</span> - <span class="time"> {{ art.created_at | date }}</span></p>
-                    </a>
-                </div>
+                <a class="article-data" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
+                    <span class="article-link">
+                        <p class="article-info"><span class="title"> NO URL {{ art.title }}</span><span class="author"> - {{ art.author }} - </span> </p>
+                    </span>
+                </a>
+                <span class="btn-delete" (mouseenter)="activeTrash()" (mouseleave)="activeTrash()">
+                    <span class="time"> {{ art.created_at | date }} </span>
+                <ng-container *ngIf="showDelete">
+                    <button (click)="deleteArticle(art._id)" mat-icon-button aria-label="delete article"><i class="material-icons">restore_from_trash</i></button>
+                </ng-container>
+                </span>
             </ng-template>
 
         </mat-list-item>

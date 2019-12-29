@@ -10,10 +10,21 @@ import { ArticlesService } from 'src/app/services/articles/articles.service';
 export class ArticleItemComponent implements OnInit {
 
   @Input() art: Article[];
+  showDelete: boolean;
 
-  constructor( private articleService: ArticlesService) { }
+  constructor( private articleService: ArticlesService) {
+    this.showDelete = false;
+  }
 
   ngOnInit() {
+  }
+
+  /**
+   * activeTrash
+   */
+  public activeTrash() {
+    this.showDelete = !this.showDelete;
+    console.log('activar trash');
   }
 
   /**

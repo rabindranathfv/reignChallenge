@@ -4,10 +4,8 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const Debug = require('debug');
-
-const port = process.env.PORT;
+// const config = require('./config/config');
 
 // parse applicattion /x-www/form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,15 +14,16 @@ app.use(bodyParser.json());
 
 app.use(cors());
 app.use(require('./config/headers'));
-dotenv.config();
+require('./config/config');
+
 const debug = new Debug('backend-api:root');
 app.use(require('./api/routes/indexRoutes'));
 
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }, (err, resp) => {
-    if (err) console.log(err)
+    if (err) console.log(err);
     console.log('DB Connection sucessfully', process.env.URLDB);
 });
 
 app.listen(process.env.PORT, () => {
-    console.log(`Escuchando en el puerto ${port}`);
+    console.log(`Escuchando en el puerto ${process.env.PORT}`);
 });

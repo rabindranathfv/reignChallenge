@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "npm run frontend && npm run backend",
-        "frontend": "cd frontend/ && npm start &",
-        "backend": "cd backend/ && npm run start-dev &"
+        "frontend": "cd frontend/reignApp && npm start &",
+        "backend": "cd backend/reignApi/src && npm run start-dev&"
     },
     "author": "Rabindranath Ferreira",
     "license": "MIT"

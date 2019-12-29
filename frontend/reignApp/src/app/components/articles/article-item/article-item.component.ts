@@ -45,9 +45,9 @@ export class ArticleItemComponent implements OnInit {
    */
   public deleteArticle( id ) {
     console.log(`${id} has been deleted`);
-    // this.articleService.deleteArticle(id).subscribe( (art: Article) => {
-    //   console.log(art, `${art._id} has been deleted`);
-    // });
+    this.articleService.deleteArticle(id).subscribe( (resp: any) => {
+       console.log(resp, `${resp.article._id} has been deleted`);
+    });
   }
 
 }

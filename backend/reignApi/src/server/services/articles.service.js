@@ -58,6 +58,7 @@ const getArticlesRemote = async() => {
 const getArticles = async(req, res) => {
     // the find condition and count condition must be the same for count in the right way
     ArticleModel.find({ state: true }, 'title story_title url story_url author created_at')
+        .sort({ created_at: 'desc' })
         .exec((err, artLists) => {
             if (err) {
                 return res.status(400).json({

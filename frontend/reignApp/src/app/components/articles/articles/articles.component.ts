@@ -12,6 +12,7 @@ export class ArticlesComponent implements OnInit {
   public articles: Article[] = [];
 
   constructor( private articleService: ArticlesService ) {
+    /*
     this.articles = [
       {
         title: null,
@@ -185,10 +186,11 @@ export class ArticlesComponent implements OnInit {
       created_at: '2019-12-27T21:33:58.000Z'
   },
   ];
+  */
 }
 
   ngOnInit() {
-    // this.getArticles();
+    this.getArticles();
   }
 
   /**
@@ -197,7 +199,7 @@ export class ArticlesComponent implements OnInit {
   public getArticles() {
     console.log('ejecutandose');
     this.articleService.getArticles().subscribe( (resp: any) => {
-      console.log(resp);
+      this.articles = [...resp.articles];
     });
   }
 

@@ -24,7 +24,6 @@ export class ArticleItemComponent implements OnInit {
    */
   public activeTrash() {
     this.showDelete = !this.showDelete;
-    console.log('activar trash');
   }
 
   /**

@@ -1,15 +1,20 @@
 .main-container {
-    border: 2px solid red;
     grid-area: main-container;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 }
 
-.main-container>.main-content>.title-container {
-    border: 2px solid slateblue;
-}
-
-::ng-deep .mat-list-base .mat-list-item .mat-list-item-content .articles-details {
-    justify-content: space-around !important;
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    height: calc(100vh - 80-vh);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 3%;
 }

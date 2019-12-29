@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let articleSchema = new Schema({
+    reference_id: {
+        type: Number,
+        required: false
+    },
     title: {
         type: String,
         required: false,

@@ -33,7 +33,6 @@ export class ArticlesService {
    * getUsers
    */
   public getArticles( resource = 'articles' ) {
-    console.log(`${environment.url}${resource}`);
     return this.http.get(`${environment.url}${resource}`)
                .pipe(catchError(this.handleError));
   }
@@ -41,15 +40,13 @@ export class ArticlesService {
   /**
    * getUserByResourceId
    */
-  public getArticlesById( id: number): Observable<any> {
-    console.log(`${environment.url}${id}`);
-    return this.http.get(`${environment.url}${id}`)
+  public getArticlesById( id: number, resource = 'articles'): Observable<any> {
+    return this.http.get(`${environment.url}${resource}/${id}`)
                .pipe(catchError(this.handleError));
   }
 
-  public deleteArticle( id: number): Observable<any> {
-    console.log(`${environment.url}${id}`);
-    return this.http.delete(`${environment.url}${id}`)
+  public deleteArticle( id: number, resource = 'articles'): Observable<any> {
+    return this.http.delete(`${environment.url}${resource}/${id}`)
           .pipe(catchError(this.handleError));
   }
 

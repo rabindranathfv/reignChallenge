@@ -23,6 +23,8 @@ mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: tru
     console.log('DB Connection sucessfully', process.env.URLDB);
 });
 
+module.exports = app;
+
 app.listen(process.env.PORT, () => {
     console.log(`Escuchando en el puerto ${process.env.PORT}`);
 });

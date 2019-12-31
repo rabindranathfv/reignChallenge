@@ -11,20 +11,20 @@ const app = express();
 
 */
 
-app.get('/users', userCtrl.getUsers);
+app.get('/v1/users', userCtrl.getUsers);
 
-app.get('/users/:id', userCtrl.getUserById);
+app.get('/v1/users/:id', userCtrl.getUserById);
 
-app.post('/users', userCtrl.postCreateUser);
+app.post('/v1/users', userCtrl.postCreateUser);
 
-app.put('/users/password', userCtrl.updateUserPassword);
+app.put('/v1/users/password', userCtrl.updateUserPassword);
 
-app.put('/users/:id', userCtrl.updateUser);
+app.put('/v1/users/:id', userCtrl.updateUser);
 
 /* hard delete */
-app.delete('/users/:id', userCtrl.hardDeleteUser);
+app.delete('/v1/users/:id', userCtrl.hardDeleteUser);
 
 /* soft delete */
-app.delete('/users/2/:id', userCtrl.softDeleteUser);
+app.delete('/v1/users/2/:id', userCtrl.softDeleteUser);
 
 module.exports = app;

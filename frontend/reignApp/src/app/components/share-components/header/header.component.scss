@@ -1,0 +1,21 @@
+.navbar-container {
+    // border: 2px solid aquamarine;
+    grid-area: header;
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    height: calc(100vh - 80-vh);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 3%;
+}

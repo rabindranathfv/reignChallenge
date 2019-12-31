@@ -1,0 +1,20 @@
+.main-container {
+    grid-area: main-container;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    height: calc(100vh - 80-vh);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 3%;
+}

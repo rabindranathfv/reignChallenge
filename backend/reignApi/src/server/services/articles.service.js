@@ -8,12 +8,14 @@ const _ = require('underscore');
 const ArticleModel = require('../models/articles');
 const debug = new Debug('backend:service:articles');
 
+//  reference_id: art.objectID,
 const createArticles = async(objArticles) => {
     try {
         // console.log(objArticles);
         let { hits } = await objArticles;
         hits.forEach(art => {
             let article = new ArticleModel({
+                reference_id: art.objectID,
                 title: art.title,
                 story_title: art.story_title,
                 url: art.url,
@@ -22,15 +24,23 @@ const createArticles = async(objArticles) => {
                 created_at: art.created_at,
             });
 
-            return article.save((err, artDB) => {
-                if (err) {
-                    return res.status(400).json({
-                        ok: false,
-                        message: `problems with articles creation, db troubles`,
-                        err
-                    });
-                }
-            });
+            ArticleModel.find({ state: true, reference_id: article.reference_id }, 'title story_title reference_id author created_at')
+                .exec((err, artLists) => {
+                    if (err) {
+                        console.error(err);
+                    }
+                    let art = artLists.shift();
+                    if (art.reference_id != article.reference_id) {
+                        return article.save((err, artDB) => {
+                            if (err) {
+                                console.error(err);
+                            }
+                        });
+                    } else {
+                        console.log(`duplicated ${article.reference_id}`);
+                    }
+
+                });
         });
     } catch (error) {
         console.log(err, `something wrong in create articles`);
@@ -38,8 +48,8 @@ const createArticles = async(objArticles) => {
 
 };
 
+
 const getArticlesRemote = async() => {
-    console.log('excute cronjob');
     let resp = await axios.get(`${process.env.API_URL}`);
     let articles = await {...resp.data };
     createArticles(articles);
@@ -48,6 +58,7 @@ const getArticlesRemote = async() => {
 const getArticles = async(req, res) => {
     // the find condition and count condition must be the same for count in the right way
     ArticleModel.find({ state: true }, 'title story_title url story_url author created_at')
+        .sort({ created_at: 'desc' })
         .exec((err, artLists) => {
             if (err) {
                 return res.status(400).json({

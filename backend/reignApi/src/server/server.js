@@ -1,4 +1,3 @@
-require('./config/config');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -22,8 +21,6 @@ mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: tru
     if (err) console.log(err);
     console.log('DB Connection sucessfully', process.env.URLDB);
 });
-
-module.exports = app;
 
 app.listen(process.env.PORT, () => {
     console.log(`Escuchando en el puerto ${process.env.PORT}`);

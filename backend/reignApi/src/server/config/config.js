@@ -1,32 +1,26 @@
-// ############# PORT CONFIGURATION
-process.env.PORT = process.env.PORT || 3000;
+'use stric';
 
-// ########## Enviroments
-process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+const path = require('path');
+const dotenv = require('dotenv');
 
-// ######## token time
-// 60 min
-// 60 seg
-// 24 hours
-// 30 days
-// process.env.TIME_TOKEN = 60 * 60 * 24 * 30;
-process.env.TIME_TOKEN = "24h";
-
-// ####### SEED AUTH
-process.env.SEED = process.env.SEED || 'token-seed-prod';
-
-// ##### API_URL
-process.env.API_URL = process.env.API_URL || `http://hn.algolia.com/api/v1/search_by_date?query=nodejs`;
-
-// ###########  BD Config
-
-let urlDB;
-let dbName = process.env.DB_NAME || 'reignDB';
-
+console.log('load node process env', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'dev') {
-    urlDB = `mongodb://localhost:27017/${dbName}`;
+    console.log('running dev');
+    dotenv.config({ path: path.join(__dirname, './.env') });
+    // ######## token time
+    // process.env.TIME_TOKEN = "24h";
+    // ###########  BD Config
+    process.env.URLDB = process.env.MONGO_URI ? process.env.MONGO_URI : `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
+} else if (process.env.NODE_ENV === 'staging') {
+    console.log('running staging');
+    console.log(path.join(__dirname, './.env.staging'));
+    dotenv.config({ path: path.join(__dirname, './.env.staging') });
+    // ###########  BD Config
+    process.env.URLDB = process.env.MONGO_URI ? process.env.MONGO_URI : `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
 } else {
-    urlDB = process.env.MONGO_URI;
+    console.log('running production');
+    console.log(path.join(__dirname, './.env.prod'));
+    dotenv.config({ path: path.join(__dirname, './.env.prod') });
+    // ###########  BD Config
+    process.env.URLDB = process.env.MONGO_URI ? process.env.MONGO_URI : `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
 }
-
-process.env.URLDB = urlDB;

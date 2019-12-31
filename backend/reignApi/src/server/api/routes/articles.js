@@ -11,10 +11,13 @@ const app = express();
 1.-checkToken
 
 */
+app.get('/test', (req, res) => {
+    res.json({ message: 'pass!' });
+});
 
 app.get('/v1/articles', articleCtrl.getArticles);
 
-// cron.schedule('0 0 */1 * * *', articleCtrl.getArticlesRemote);
+cron.schedule('0 0 */1 * * *', articleCtrl.getArticlesRemote);
 
 app.get('/v1/articles/remote', articleCtrl.getArticlesRemote);
 

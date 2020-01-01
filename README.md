@@ -6,8 +6,8 @@
 ### Information Important
 
 1. [Project structure](#projectstructure)
-2.-[Frontend](#frontend)
-3.-[Backend](#backend)
+2. [Frontend](#frontend)
+3. [Backend](#backend)
 4. [backend-config](#backend-config)
 5. [populate-db](#populate-db)
 6. [dockerized](#dockerized)

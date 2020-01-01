@@ -11,9 +11,6 @@ const app = express();
 1.-checkToken
 
 */
-app.get('/test', (req, res) => {
-    res.json({ message: 'pass!' });
-});
 
 app.get('/v1/articles', articleCtrl.getArticles);
 

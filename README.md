@@ -105,17 +105,17 @@ TIME_TOKEN=12h
 
 the definition of each file in env file:
 
-`NODE_ENV` defines type of enviroments, can be dev/staging/prod
-`DB_HOST` host for database
-`HOST` host for API
-`PORT` por for API
-`DB_NAME` database name
-`DB_PORT` define mongo db port
-`SEED`seed for token generation, security practice 
-`API_URL` add url -->http://hn.algolia.com/api/v1/search_by_date?query=nodejs
-`URLDB`url for database, this is created with db_host, db_port and db_name inside config.js
-`TIME_TOKEN` time for token expiration
-`MONGO_URI`
++ `NODE_ENV` defines type of enviroments, can be dev/staging/prod
++ `DB_HOST` host for database
++ `HOST` host for API
++ `PORT` por for API
++ `DB_NAME` database name
++ `DB_PORT` define mongo db port
++ `SEED`seed for token generation, security practice 
++ `API_URL` add url -->http://hn.algolia.com/api/v1/search_by_date?query=nodejs
++ `URLDB`url for database, this is created with db_host, db_port and db_name inside config.js
++ `TIME_TOKEN` time for token expiration
++ `MONGO_URI` full Mongo URI for Staging or production
 
 and example for Development config you can use
 
@@ -202,7 +202,7 @@ export const environment = {
 };
 ```
 
-Production for build you are going to use this file `./build_staging.sh`
+config for build staging
 
 ```javascript
 export const environment = {

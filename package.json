@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "engines": {
+        "node": "10.14.2"
+    },
     "scripts": {
         "start": "npm run frontend && npm run backend",
         "frontend": "cd frontend/reignApp && npm start &",

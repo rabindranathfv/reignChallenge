@@ -13,6 +13,8 @@
 6. [dockerized](#dockerized)
 7. [runing-apps](#runing-apps)
 8. [Enviroments frontend](#enviroments)
+9. [start frontend](#startfront)
+10. [start backend](#startback)
 
 
 ## Project Structure
@@ -211,3 +213,9 @@ export const environment = {
     url: 'http://localhost:3000/v1/',
 };
 ```
+
+
+## start frontend
+<a name="startfront"/>
+
+run `npm run start` for start frontend in angular

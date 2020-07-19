@@ -13,6 +13,9 @@
 6. [dockerized](#dockerized)
 7. [runing-apps](#runing-apps)
 8. [Enviroments frontend](#enviroments)
+9. [start frontend](#startfront)
+10. [start backend](#startback)
+11. [test coverage](#unittest)
 
 
 ## Project Structure
@@ -25,7 +28,8 @@ The structure of this project defined by folders with specific purpose
 ├── ...
 ├── reignChallenge                 # mean fullstack project
 │   ├── backend                     # Folder API REST Express
-│   ├── frontned                    # Folder Ang App frontend
+│   ├── frontend                    # Folder Ang App 
+Angular
 │   ├── docker-compose.yml 
 │   ├── gitignore
 │   ├── gitlab
@@ -69,9 +73,9 @@ The structure of this project defined by folders with specific purpose
 .
 ├── ...
 ├── backend                     # Express API Rest 
-│   ├── reignApi                
+│   ├── reignApi                     # e2e test
 │      ├── src                  
-│         ├── server 
+│         ├── server        # API REST
 │         ├── Dockerfile        # api express dockerfile
 │           ├── api             # midlewware and endpoint routes
 │           ├── assets          # defaul imgs for backend, and more
@@ -101,6 +105,7 @@ SEED=security-seed
 API_URL=http://hn.algolia.com/api/v1/search_by_date?query=nodejs
 URLDB=test
 TIME_TOKEN=12h
+MONGO_URI
 ```
 
 the definition of each file in env file:
@@ -194,7 +199,6 @@ for more check package.json inside backend folder.
 
 We define 3 files for this: production, staging and Dev.
 
-
 ```javascript
 export const environment = {
   production: true,
@@ -211,3 +215,31 @@ export const environment = {
     url: 'http://localhost:3000/v1/',
 };
 ```
+
+
+## start frontend
+<a name="startfront"/>
+
+run `npm run start` for start frontend in angular
+
+## start backend
+<a name="startback"/>
+
+for backend it's depends which enviroments you wan to run you can choose between:
+
+````
+Development
+Stagin
+Production
+````
+
+if you want to start API with development settings you must run `npm run start-dev` for start API REST 
+
+if you want to start API with Staging settings you must run `npm run start-staging` for start API REST
+
+if you want to start API with Production settings you must run `npm run start-prod` for start API REST
+
+## test coverage
+<a name="unittest"/>
+
+run `npm run test:coverage` for start all test into backend

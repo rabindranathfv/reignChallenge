@@ -11,7 +11,6 @@ const app = express();
 1.-checkToken
 
 */
-
 app.get('/v1/articles', articleCtrl.getArticles);
 
 cron.schedule('0 0 */1 * * *', articleCtrl.getArticlesRemote);

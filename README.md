@@ -219,3 +219,20 @@ export const environment = {
 <a name="startfront"/>
 
 run `npm run start` for start frontend in angular
+
+## start backend
+<a name="startback"/>
+
+for backend it's depends which enviroments you wan to run you can choose between:
+
+````
+Development
+Stagin
+Production
+````
+
+if you want to start API with development settings you must run `npm run start-dev` for start API REST 
+
+if you want to start API with Staging settings you must run `npm run start-staging` for start API REST
+
+if you want to start API with Production settings you must run `npm run start-prod` for start API REST

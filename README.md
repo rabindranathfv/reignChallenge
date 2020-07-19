@@ -15,6 +15,7 @@
 8. [Enviroments frontend](#enviroments)
 9. [start frontend](#startfront)
 10. [start backend](#startback)
+11. [test coverage](#unittest)
 
 
 ## Project Structure
@@ -27,7 +28,8 @@ The structure of this project defined by folders with specific purpose
 ├── ...
 ├── reignChallenge                 # mean fullstack project
 │   ├── backend                     # Folder API REST Express
-│   ├── frontned                    # Folder Ang App frontend
+│   ├── frontend                    # Folder Ang App 
+Angular
 │   ├── docker-compose.yml 
 │   ├── gitignore
 │   ├── gitlab
@@ -73,7 +75,7 @@ The structure of this project defined by folders with specific purpose
 ├── backend                     # Express API Rest 
 │   ├── reignApi                     # e2e test
 │      ├── src                  
-│         ├── server        # all components with their own module for easy import 
+│         ├── server        # API REST
 │         ├── Dockerfile        # api express dockerfile
 │           ├── api             # midlewware and endpoint routes
 │           ├── assets          # defaul imgs for backend, and more

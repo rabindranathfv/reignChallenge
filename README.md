@@ -236,3 +236,8 @@ if you want to start API with development settings you must run `npm run start-d
 if you want to start API with Staging settings you must run `npm run start-staging` for start API REST
 
 if you want to start API with Production settings you must run `npm run start-prod` for start API REST
+
+## test coverage
+<a name="unittest"/>
+
+run `npm run test:coverage` for start all test into backend

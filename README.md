@@ -105,6 +105,7 @@ SEED=security-seed
 API_URL=http://hn.algolia.com/api/v1/search_by_date?query=nodejs
 URLDB=test
 TIME_TOKEN=12h
+MONGO_URI
 ```
 
 the definition of each file in env file:
@@ -197,7 +198,6 @@ for more check package.json inside backend folder.
 <a name="enviroments"/>
 
 We define 3 files for this: production, staging and Dev.
-
 
 ```javascript
 export const environment = {
